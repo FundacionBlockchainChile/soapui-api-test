@@ -28,10 +28,11 @@
             </con:settings>
             <con:endpoint>https://jsonplaceholder.typicode.com</con:endpoint>
             <con:request/>
-            <con:assertion type="Valid HTTP Status Codes" id="valid-status">
+            <con:assertion type="Simple Contains" id="status-code">
               <con:configuration>
-                <con:status>200</con:status>
-                <con:selectedStatusCodes>200</con:selectedStatusCodes>
+                <token>HTTP/1.1 200</token>
+                <ignoreCase>false</ignoreCase>
+                <useRegEx>false</useRegEx>
               </con:configuration>
             </con:assertion>
             <con:assertion type="JsonPath Count" id="json-count">
