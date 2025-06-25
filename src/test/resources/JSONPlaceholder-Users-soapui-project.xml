@@ -31,6 +31,7 @@
             <con:assertion type="Valid HTTP Status Codes" id="valid-status">
               <con:configuration>
                 <con:status>200</con:status>
+                <con:selectedStatusCodes>200</con:selectedStatusCodes>
               </con:configuration>
             </con:assertion>
             <con:assertion type="JsonPath Count" id="json-count">
