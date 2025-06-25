@@ -28,11 +28,9 @@
             </con:settings>
             <con:endpoint>https://jsonplaceholder.typicode.com</con:endpoint>
             <con:request/>
-            <con:assertion type="Simple Contains" id="status-code">
+            <con:assertion type="Script" id="status-code">
               <con:configuration>
-                <token>HTTP/1.1 200</token>
-                <ignoreCase>false</ignoreCase>
-                <useRegEx>false</useRegEx>
+                <scriptText>assert messageExchange.responseStatusCode == 200</scriptText>
               </con:configuration>
             </con:assertion>
             <con:assertion type="JsonPath Count" id="json-count">
