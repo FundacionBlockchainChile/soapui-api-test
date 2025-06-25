@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="b67c7374-e43d-4f24-8b48-47e342121d85" activeEnvironment="Default" name="JSONPlaceholder Users API" resourceRoot="" soapui-version="5.7.0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings/>
+  <con:interface xsi:type="con:RestService" id="c1234567-e43d-4f24-8b48-47e342121d85" wadlVersion="http://wadl.dev.java.net/2009/02" name="JSONPlaceholder Users API" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:settings/>
+    <con:definitionCache/>
+    <con:endpoints>
+      <con:endpoint>https://jsonplaceholder.typicode.com</con:endpoint>
+    </con:endpoints>
+    <con:resource name="Users" path="/users">
+      <con:method name="GET" id="get-users" method="GET">
+        <con:settings/>
+        <con:request name="Get All Users" mediaType="application/json"/>
+      </con:method>
+    </con:resource>
+  </con:interface>
+  <con:testSuite id="test-suite-1" name="Users TestSuite">
+    <con:settings/>
+    <con:runType>SEQUENTIAL</con:runType>
+    <con:testCase id="test-case-1" name="Get Users Test Case" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" searchProperties="true">
+      <con:settings/>
+      <con:testStep type="restrequest" name="Get All Users">
+        <con:settings/>
+        <con:config service="JSONPlaceholder Users API" resourcePath="/users" methodName="GET" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Get All Users" mediaType="application/json">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://jsonplaceholder.typicode.com</con:endpoint>
+            <con:request/>
+            <con:assertion type="Valid HTTP Status Codes" id="valid-status">
+              <con:configuration>
+                <con:status>200</con:status>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="JsonPath Count" id="json-count">
+              <con:configuration>
+                <con:path>$</con:path>
+                <con:content>10</con:content>
+                <con:regex>false</con:regex>
+                <con:expectedContent>10</con:expectedContent>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="JsonPath Match" id="json-match">
+              <con:configuration>
+                <con:path>$[0].id</con:path>
+                <con:content>1</con:content>
+                <con:regex>false</con:regex>
+              </con:configuration>
+            </con:assertion>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+    </con:testCase>
+  </con:testSuite>
+  <con:properties/>
+</con:soapui-project> 
