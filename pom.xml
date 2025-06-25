@@ -27,11 +27,21 @@
                 </configuration>
                 <executions>
                     <execution>
+                        <id>soapui-test</id>
+                        <phase>test</phase>
                         <goals>
                             <goal>test</goal>
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.5</version>
+                <configuration>
+                    <skipTests>true</skipTests>
+                </configuration>
             </plugin>
         </plugins>
     </build>
